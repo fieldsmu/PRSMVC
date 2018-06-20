@@ -1,0 +1,31 @@
+﻿@model PRSMVC.ViewModels.ProductsForVendor
+@{
+    ViewBag.Title = "ProductsForVendor";
+}
+
+<h2>ProductsForVendor</h2>
+
+<table class="table">
+    <tr>
+        <th>Part Number</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Unit</th>
+        <th>Photo Path</th>
+        <th>Active</th>
+    </tr>
+@foreach(var item in Model.Products) {
+    <tr>
+        <td>@item.PartNumber</td>
+        <td>@item.Name</td>
+        <td>@item.Price</td>
+        <td>@item.Unit</td>
+        <td>@item.PhotoPath</td>
+        <td>@item.Active</td>
+    </tr>
+}
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

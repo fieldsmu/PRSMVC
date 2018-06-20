@@ -1,0 +1,34 @@
+﻿@model PRSMVC.ViewModels.LineItemsForPR
+@{
+    ViewBag.Title = "LineItemsForPR";
+    double grandTotal = 0;
+}
+
+<h2>LineItemsForPR</h2>
+
+<table class="table">
+    <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price Per Unit</th>
+        <th>Total</th>
+    </tr>
+@foreach (var item in Model.PRLineItems) {
+    <tr>
+        <td>@item.Product.Name</td>
+        <td>@item.Quantity</td>
+        <td>@item.Product.Price</td>
+        <td>@(item.Quantity * item.Product.Price)</td>
+        @{
+            grandTotal = grandTotal + (item.Quantity * item.Product.Price);
+        }
+    </tr>
+}
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Grand Total: @grandTotal</th>
+    </tr>
+</table>
+
